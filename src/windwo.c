@@ -1,6 +1,5 @@
 #include "../headers/window.h"
 
-
 /**
  * init - Initializes the SDL instance with a window and renderer.
  * @instance: A pointer to an SDL_Instance structure.
@@ -39,6 +38,10 @@ int init(SDL_Instance *instance)
 	return (0);
 }
 
+/**
+ * destroy - Destroys the SDL window and renderer.
+ * @instance: A pointer to an SDL_Instance structure.
+ */
 void destroy(SDL_Instance *instance)
 {
 	SDL_DestroyRenderer(instance->renderer);

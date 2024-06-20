@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include "SDL2/SDL.h"
+#include "player.h"
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -20,5 +21,4 @@ typedef struct SDL_Instance
 int init(SDL_Instance *instance);
 void destroy(SDL_Instance *instance);
 
-#endif // WINDOW_H
-
+#endif
