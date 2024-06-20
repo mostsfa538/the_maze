@@ -1,5 +1,5 @@
-#ifndef _WENDOW_H
-#define _WENDOW_H
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include "SDL2/SDL.h"
 
@@ -10,7 +10,6 @@
  * struct SDL_Instance - A structure to hold the SDL window and renderer.
  * @window: A pointer to the SDL_Window structure.
  * @renderer: A pointer to the SDL_Renderer structure.
- *
  */
 typedef struct SDL_Instance
 {
@@ -18,5 +17,8 @@ typedef struct SDL_Instance
 	SDL_Renderer *renderer;
 } SDL_Instance;
 
-int init(SDL_Instance *);
+int init(SDL_Instance *instance);
 void destroy(SDL_Instance *instance);
+
+#endif // WINDOW_H
+
