@@ -22,5 +22,6 @@ Player *createPlayer(double posX, double posY, double dirX, double dirY,
 					 double planeX, double planeY);
 void destroyPlayer(Player *player);
 void updatePlayerPosition(Player *player, double newPosX, double newPosY);
+void updatePlayerDirection(Player *player, double frameTime);
 
 #endif

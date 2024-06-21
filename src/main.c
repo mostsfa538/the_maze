@@ -23,21 +23,21 @@ int main(void)
     }
 
     bool quit = false;
-    // SDL_Event event;
-    // Uint32 lastTime = SDL_GetTicks();
+    SDL_Event event;
+    Uint32 lastTime = SDL_GetTicks();
 
     while (!quit)
     {
-        // while (SDL_PollEvent(&event))
-        // {
-        //     handleEvents(event);
-        // }
+        while (SDL_PollEvent(&event))
+        {
+            handleEvents(event);
+        }
 
-        // Uint32 currentTime = SDL_GetTicks();
-        // double frameTime = (currentTime - lastTime) / 1000.0;
-        // lastTime = currentTime;
+        Uint32 currentTime = SDL_GetTicks();
+        double frameTime = (currentTime - lastTime) / 1000.0;
+        lastTime = currentTime;
 
-        // update(frameTime);
+        updatePlayerDirection(player, frameTime);
 
         SDL_SetRenderDrawColor(instance.renderer, 0, 0, 0, 255);
         SDL_RenderClear(instance.renderer);

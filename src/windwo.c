@@ -48,3 +48,17 @@ void destroy(SDL_Instance *instance)
 	SDL_DestroyWindow(instance->window);
 	SDL_Quit();
 }
+
+/**
+ * handleEvents - Handles SDL events.
+ * @event: The SDL event to handle.
+ */
+
+void handleEvents(SDL_Event event)
+{
+    if (event.type == SDL_QUIT)
+    {
+        SDL_Quit();
+        exit(0);
+    }
+}

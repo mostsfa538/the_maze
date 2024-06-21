@@ -2,6 +2,8 @@
 #define WINDOW_H
 
 #include "SDL2/SDL.h"
+#include <stdio.h>
+#include <stdbool.h>
 #include "player.h"
 
 #define SCREEN_WIDTH 800
@@ -24,6 +26,7 @@ typedef struct SDL_Instance
 
 int init(SDL_Instance *instance);
 void destroy(SDL_Instance *instance);
+void handleEvents(SDL_Event event);
 void calculateRayDirectionAndStep(int x, double *rayDirX, double *rayDirY,
 								  int *stepX, int *stepY, double *sideDistX,
 								  double *sideDistY, Player *player);
