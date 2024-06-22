@@ -39,18 +39,3 @@ void destroyPlayer(Player *player)
 		free(player);
 	}
 }
-
-/**
- * updatePlayerPosition - Updates the player's position.
- * @player: A pointer to the player structure to update.
- * @newPosX: The new x position for the player.
- * @newPosY: The new y position for the player.
- */
-void updatePlayerPosition(Player *player, double newPosX, double newPosY)
-{
-	if (player != NULL)
-	{
-		player->posX = newPosX;
-		player->posY = newPosY;
-	}
-}

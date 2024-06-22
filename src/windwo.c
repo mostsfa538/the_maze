@@ -56,9 +56,9 @@ void destroy(SDL_Instance *instance)
 
 void handleEvents(SDL_Event event)
 {
-    if (event.type == SDL_QUIT)
-    {
-        SDL_Quit();
-        exit(0);
-    }
+	if (event.type == SDL_QUIT)
+	{
+		SDL_Quit();
+		exit(0);
+	}
 }

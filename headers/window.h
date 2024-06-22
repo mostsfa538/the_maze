@@ -11,6 +11,9 @@
 #define mapWidth 24
 #define mapHeight 24
 
+typedef Uint32 color;
+typedef Uint8 key;
+
 extern int worldMap[mapWidth][mapHeight];
 
 /**
@@ -38,7 +41,7 @@ void calculateLineHeightAndDraw(int x, int side, int mapX, int mapY,
 								Player *player);
 void render(SDL_Instance *instance, Player *player);
 
-void parseMap(void);
+void parseMap();
 void drawMap(SDL_Instance *instance, Player player);
 void drawPlayerDirection(SDL_Instance *instance, Player *player);
 bool enableMap(Player *player);
