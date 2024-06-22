@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <stdlib.h>
+#include <stdbool.h>
 
 /**
  * struct Player - A structure to hold the player's position and direction.

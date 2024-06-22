@@ -1,33 +1,5 @@
 #include "../headers/window.h"
 
-
-int worldMap[mapWidth][mapHeight] = {
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-
-
 /**
  * calculateRayDirectionAndStep - Calculates the ray direction and step.
  * @x: The x coordinate of the screen.
@@ -148,19 +120,19 @@ void calculateLineHeightAndDraw(int x, int side, int mapX, int mapY,
 	if (drawEnd >= SCREEN_HEIGHT)
 		drawEnd = SCREEN_HEIGHT - 1;
 
-     SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 255);
-        if (worldMap[mapX][mapY] == 1)
-            SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 255);
-        else if (worldMap[mapX][mapY] == 2)
-            SDL_SetRenderDrawColor(instance->renderer, 0, 255, 0, 255);
-        else if (worldMap[mapX][mapY] == 3)
-            SDL_SetRenderDrawColor(instance->renderer, 0, 0, 255, 255);
-        else if (worldMap[mapX][mapY] == 4)
-            SDL_SetRenderDrawColor(instance->renderer, 255, 255, 255, 255);
-        else
-            SDL_SetRenderDrawColor(instance->renderer, 255, 255, 0, 255);
+	SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 255);
+	if (worldMap[mapX][mapY] == 1)
+		SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 255);
+	else if (worldMap[mapX][mapY] == 2)
+		SDL_SetRenderDrawColor(instance->renderer, 0, 255, 0, 255);
+	else if (worldMap[mapX][mapY] == 3)
+		SDL_SetRenderDrawColor(instance->renderer, 0, 0, 255, 255);
+	else if (worldMap[mapX][mapY] == 4)
+		SDL_SetRenderDrawColor(instance->renderer, 255, 255, 255, 255);
+	else
+		SDL_SetRenderDrawColor(instance->renderer, 255, 255, 0, 255);
 
-        SDL_RenderDrawLine(instance->renderer, x, drawStart, x, drawEnd);
+	SDL_RenderDrawLine(instance->renderer, x, drawStart, x, drawEnd);
 }
 
 /**
