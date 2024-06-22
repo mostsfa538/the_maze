@@ -34,6 +34,13 @@ int main(void)
 		while (SDL_PollEvent(&event))
 		{
 			handleEvents(event);
+            if (event.type == SDL_KEYDOWN)
+			{
+				if (event.key.keysym.sym == SDLK_SLASH)
+				{
+					player->mapEnabled = !player->mapEnabled;
+				}
+			}
 		}
 
 		Uint32 currentTime = SDL_GetTicks();

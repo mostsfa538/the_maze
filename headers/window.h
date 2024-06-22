@@ -39,4 +39,7 @@ void calculateLineHeightAndDraw(int x, int side, int mapX, int mapY,
 void render(SDL_Instance *instance, Player *player);
 
 void parseMap(void);
+void drawMap(SDL_Instance *instance, Player player);
+void drawPlayerDirection(SDL_Instance *instance, Player *player);
+bool enableMap(Player *player);
 #endif

@@ -17,6 +17,7 @@ typedef struct Player
 	double posX, posY;
 	double dirX, dirY;
 	double planeX, planeY;
+	bool mapEnabled;
 } Player;
 
 Player *createPlayer(double posX, double posY, double dirX, double dirY,
