@@ -2,9 +2,9 @@
 #define WINDOW_H
 
 #include "SDL2/SDL.h"
-#include <stdio.h>
-#include <stdbool.h>
 #include "player.h"
+#include <stdbool.h>
+#include <stdio.h>
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -23,12 +23,13 @@ extern int worldMap[mapWidth][mapHeight];
  * struct SDL_Instance - A structure to hold the SDL window and renderer.
  * @window: A pointer to the SDL_Window structure.
  * @renderer: A pointer to the SDL_Renderer structure.
+ * @textures: An array of pointers to the textures.
  */
 typedef struct SDL_Instance
 {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
-	color *textures[NUM_TEXTURES];
+	color * textures[NUM_TEXTURES];
 } SDL_Instance;
 
 int init(SDL_Instance *instance);
@@ -45,7 +46,7 @@ void calculateLineHeightAndDraw(int x, int side, int mapX, int mapY,
 								Player *player);
 void render(SDL_Instance *instance, Player *player);
 
-void parseMap();
+void parseMap(void);
 void drawMap(SDL_Instance *instance, Player player);
 void drawPlayerDirection(SDL_Instance *instance, Player *player);
 bool enableMap(Player *player);

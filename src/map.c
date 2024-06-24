@@ -73,12 +73,15 @@ void drawPlayerDirection(SDL_Instance *instance, Player *player)
 	int startY = player->posY * tileSize;
 	int endX = startX + player->dirX * lineLength;
 	int endY = startY + player->dirY * lineLength;
+
 	for (int i = 0; i < 5; i++)
-    {
-        SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 200 - i * 40);
-        SDL_RenderDrawLine(instance->renderer, startX - i, startY - i, endX - i, endY - i);
-        SDL_RenderDrawLine(instance->renderer, startX + i, startY + i, endX + i, endY + i);
-    }
+	{
+		SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 200 - i * 40);
+		SDL_RenderDrawLine(instance->renderer, startX - i, startY - i, endX - i,
+						   endY - i);
+		SDL_RenderDrawLine(instance->renderer, startX + i, startY + i, endX + i,
+						   endY + i);
+	}
 	SDL_SetRenderDrawBlendMode(instance->renderer, SDL_BLENDMODE_NONE);
 }
 

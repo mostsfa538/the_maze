@@ -32,12 +32,12 @@ void updatePlayerPosition(Player *player, double frameTime)
 	}
 	oldX = player->posX;
 	oldY = player->posY;
-	
-	if (worldMap[(int)player->posX][(int)player->posY] != 0)
-    {
-        player->posX = oldX;
-        player->posY = oldY;
-    }
+
+	if (worldMap[(int) player->posX][(int) player->posY] != 0)
+	{
+		player->posX = oldX;
+		player->posY = oldY;
+	}
 }
 
 /**
@@ -78,10 +78,10 @@ void updatePlayerRotation(Player *player, double frameTime)
 	}
 	oldX = player->posX;
 	oldY = player->posY;
-	
-	if (worldMap[(int)player->posX][(int)player->posY] != 0)
-    {
-        player->posX = oldX;
-        player->posY = oldY;
-    }
+
+	if (worldMap[(int) player->posX][(int) player->posY] != 0)
+	{
+		player->posX = oldX;
+		player->posY = oldY;
+	}
 }

@@ -36,13 +36,13 @@ int init(SDL_Instance *instance)
 	}
 
 	if (initTextures(instance) != 0)
-    {
-        fprintf(stderr, "Failed to initialize textures\n");
-        SDL_DestroyRenderer(instance->renderer);
-        SDL_DestroyWindow(instance->window);
-        SDL_Quit();
-        return (1);
-    }
+	{
+		fprintf(stderr, "Failed to initialize textures\n");
+		SDL_DestroyRenderer(instance->renderer);
+		SDL_DestroyWindow(instance->window);
+		SDL_Quit();
+		return (1);
+	}
 
 	return (0);
 }
