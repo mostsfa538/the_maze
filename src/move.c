@@ -9,6 +9,7 @@
 void updatePlayerPosition(Player *player, double frameTime)
 {
 	double moveSpeed = frameTime * 5.0;
+	double oldX, oldY;
 	const key *state = SDL_GetKeyboardState(NULL);
 
 	if (state[SDL_SCANCODE_W])
@@ -29,6 +30,14 @@ void updatePlayerPosition(Player *player, double frameTime)
 					[(int) (player->posY - player->dirY * moveSpeed)] == 0)
 			player->posY -= player->dirY * moveSpeed;
 	}
+	oldX = player->posX;
+	oldY = player->posY;
+	
+	if (worldMap[(int)player->posX][(int)player->posY] != 0)
+    {
+        player->posX = oldX;
+        player->posY = oldY;
+    }
 }
 
 /**
@@ -40,6 +49,7 @@ void updatePlayerRotation(Player *player, double frameTime)
 {
 	double rotSpeed = frameTime * 3.0;
 	double oldDirX, oldPlaneX;
+	double oldX, oldY;
 	const key *state = SDL_GetKeyboardState(NULL);
 
 	if (state[SDL_SCANCODE_D])
@@ -66,4 +76,12 @@ void updatePlayerRotation(Player *player, double frameTime)
 		player->planeY =
 			oldPlaneX * sin(rotSpeed) + player->planeY * cos(rotSpeed);
 	}
+	oldX = player->posX;
+	oldY = player->posY;
+	
+	if (worldMap[(int)player->posX][(int)player->posY] != 0)
+    {
+        player->posX = oldX;
+        player->posY = oldY;
+    }
 }

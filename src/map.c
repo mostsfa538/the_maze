@@ -43,16 +43,8 @@ void drawMap(SDL_Instance *instance, Player player)
 	{
 		for (int j = 0; j < mapWidth; ++j)
 		{
-			if (worldMap[i][j] == 1)
-				SDL_SetRenderDrawColor(instance->renderer, 0, 0, 0, 255);
-			else if (worldMap[i][j] == 2)
-				SDL_SetRenderDrawColor(instance->renderer, 0, 255, 0, 255);
-			else if (worldMap[i][j] == 3)
-				SDL_SetRenderDrawColor(instance->renderer, 0, 0, 255, 255);
-			else if (worldMap[i][j] == 4)
-				SDL_SetRenderDrawColor(instance->renderer, 255, 255, 0, 255);
-			else if (worldMap[i][j] == 5)
-				SDL_SetRenderDrawColor(instance->renderer, 255, 0, 255, 255);
+			if (worldMap[i][j] >= 1)
+				SDL_SetRenderDrawColor(instance->renderer, 255, 255, 255, 255);
 			else
 				SDL_SetRenderDrawColor(instance->renderer, 0, 0, 0, 255);
 			fillRect =
@@ -76,14 +68,18 @@ void drawMap(SDL_Instance *instance, Player player)
 void drawPlayerDirection(SDL_Instance *instance, Player *player)
 {
 	int tileSize = 10;
-	int lineLength = tileSize;
+	int lineLength = tileSize * 3;
 	int startX = player->posX * tileSize;
 	int startY = player->posY * tileSize;
 	int endX = startX + player->dirX * lineLength;
 	int endY = startY + player->dirY * lineLength;
-
-	SDL_SetRenderDrawColor(instance->renderer, 0, 255, 255, 255);
-	SDL_RenderDrawLine(instance->renderer, startX, startY, endX, endY);
+	for (int i = 0; i < 5; i++)
+    {
+        SDL_SetRenderDrawColor(instance->renderer, 255, 0, 0, 200 - i * 40);
+        SDL_RenderDrawLine(instance->renderer, startX - i, startY - i, endX - i, endY - i);
+        SDL_RenderDrawLine(instance->renderer, startX + i, startY + i, endX + i, endY + i);
+    }
+	SDL_SetRenderDrawBlendMode(instance->renderer, SDL_BLENDMODE_NONE);
 }
 
 /**

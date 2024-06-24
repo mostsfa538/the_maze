@@ -10,6 +10,9 @@
 #define SCREEN_HEIGHT 600
 #define mapWidth 24
 #define mapHeight 24
+#define TEX_WIDTH 64
+#define TEX_HEIGHT 64
+#define NUM_TEXTURES 5
 
 typedef Uint32 color;
 typedef Uint8 key;
@@ -25,6 +28,7 @@ typedef struct SDL_Instance
 {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
+	color *textures[NUM_TEXTURES];
 } SDL_Instance;
 
 int init(SDL_Instance *instance);
@@ -45,4 +49,7 @@ void parseMap();
 void drawMap(SDL_Instance *instance, Player player);
 void drawPlayerDirection(SDL_Instance *instance, Player *player);
 bool enableMap(Player *player);
+color *loadTexture(const char *file);
+int initTextures(SDL_Instance *instance);
+void destroyTexture(SDL_Instance *instance);
 #endif

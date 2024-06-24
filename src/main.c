@@ -62,6 +62,7 @@ int main(void)
 
 	destroyPlayer(player);
 	destroy(&instance);
+	destroyTexture(&instance);
 
 	return (0);
 }
