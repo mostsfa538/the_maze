@@ -2,6 +2,7 @@
 #include "../headers/window.h"
 
 int worldMap[mapWidth][mapWidth];
+int rotatedMap[mapWidth][mapHeight];
 
 /**
  * parseMap - Parses the map from the map file.
@@ -40,10 +41,15 @@ void drawMap(SDL_Instance *instance, Player player)
 	if (!player.mapEnabled)
 		return;
 	for (int i = 0; i < mapHeight; ++i)
+		for (int j = 0; j < mapWidth; ++j)
+			rotatedMap[j][i] = worldMap[i][j];
+	routeMap();
+	routeMap();
+	for (int i = 0; i < mapHeight; ++i)
 	{
 		for (int j = 0; j < mapWidth; ++j)
 		{
-			if (worldMap[i][j] >= 1)
+			if (rotatedMap[i][j] >= 1)
 				SDL_SetRenderDrawColor(instance->renderer, 255, 255, 255, 255);
 			else
 				SDL_SetRenderDrawColor(instance->renderer, 0, 0, 0, 255);
@@ -94,4 +100,23 @@ bool enableMap(Player *player)
 {
 	player->mapEnabled = !player->mapEnabled;
 	return (player->mapEnabled);
+}
+
+
+/**
+ * routeMap - Rotates the map 90 degrees.
+ */
+void routeMap(void)
+{
+	int temp;
+
+	for (int i = 0; i < mapHeight; ++i)
+	{
+		for (int j = 0; j < mapWidth / 2; ++j)
+		{
+			temp = rotatedMap[i][j];
+			rotatedMap[i][j] = rotatedMap[i][mapWidth - j - 1];
+			rotatedMap[i][mapWidth - j - 1] = temp;
+		}
+	}
 }

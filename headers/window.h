@@ -53,4 +53,5 @@ bool enableMap(Player *player);
 color *loadTexture(const char *file);
 int initTextures(SDL_Instance *instance);
 void destroyTexture(SDL_Instance *instance);
+void routeMap(void);
 #endif
