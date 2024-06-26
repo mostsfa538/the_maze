@@ -1,4 +1,3 @@
-#include "../headers/player.h"
 #include "../headers/window.h"
 
 /**
@@ -39,6 +38,8 @@ void destroyTexture(SDL_Instance *instance)
 	{
 		free(instance->textures[i]);
 	}
+	free(instance->floorTexture);
+	free(instance->ceilingTexture);
 }
 
 /**
@@ -53,7 +54,7 @@ int initTextures(SDL_Instance *instance)
 		"/home/mo5tar/Github/alx/the_maze/textures/redbrick.bmp",
 		"/home/mo5tar/Github/alx/the_maze/textures/graystone.bmp",
 		"/home/mo5tar/Github/alx/the_maze/textures/wood.bmp",
-		"/home/mo5tar/Github/alx/the_maze/textures/colorstone.bmp"};
+		"/home/mo5tar/Github/alx/the_maze/textures/bluestone.bmp"};
 
 	for (int i = 0; i < NUM_TEXTURES; i++)
 	{
@@ -65,5 +66,21 @@ int initTextures(SDL_Instance *instance)
 			return (1);
 		}
 	}
+
+	instance->floorTexture =
+		loadTexture("/home/mo5tar/Github/alx/the_maze/textures/colorstone.bmp");
+	if (!instance->floorTexture)
+	{
+		fprintf(stderr, "Failed to load floor texture\n");
+		return (1);
+	}
+	instance->ceilingTexture = loadTexture(
+		"/home/mo5tar/Github/alx/the_maze/textures/purplestone.bmp");
+	if (!instance->ceilingTexture)
+	{
+		fprintf(stderr, "Failed to load ceiling texture\n");
+		return (1);
+	}
+
 	return (0);
 }

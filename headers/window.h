@@ -30,6 +30,8 @@ typedef struct SDL_Instance
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	color * textures[NUM_TEXTURES];
+	color * floorTexture;
+	color * ceilingTexture;
 } SDL_Instance;
 
 int init(SDL_Instance *instance);
@@ -54,4 +56,6 @@ color *loadTexture(const char *file);
 int initTextures(SDL_Instance *instance);
 void destroyTexture(SDL_Instance *instance);
 void routeMap(void);
+void drawCeiling(SDL_Instance *instance, Player *player);
+void drawFloor(SDL_Instance *instance, Player *player);
 #endif

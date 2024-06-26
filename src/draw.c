@@ -142,6 +142,7 @@ void calculateLineHeightAndDraw(int x, int side, int mapX, int mapY,
 	}
 }
 
+
 /**
  * render - Renders the walls to the screen.
  * @instance: A pointer to the SDL_Instance structure.
@@ -154,6 +155,9 @@ void render(SDL_Instance *instance, Player *player)
 	int stepX, stepY;
 	double rayDirX, rayDirY, sideDistX, sideDistY;
 	double deltaDistX, deltaDistY;
+
+	drawFloor(instance, player);
+	drawCeiling(instance, player);
 
 	for (int x = 0; x < SCREEN_WIDTH; x++)
 	{
