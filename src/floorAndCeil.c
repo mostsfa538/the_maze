@@ -1,5 +1,5 @@
-#include "../headers/player.h"
 #include "../headers/window.h"
+#include "../headers/player.h"
 
 /**
  * drawFloor - Draws the floor to the screen.
@@ -14,7 +14,7 @@ void drawFloor(SDL_Instance *instance, Player *player)
 		floorStepX, floorStepY, floorX, floorY;
 	int p, cellX, cellY, texX, texY;
 	color floorColor;
-	key r, g, b;
+	Uint8 r, g, b;
 
 	for (int y = 0; y < SCREEN_HEIGHT / 2; y += yStep)
 	{
@@ -47,12 +47,12 @@ void drawFloor(SDL_Instance *instance, Player *player)
 		}
 	}
 }
+
 /**
  * drawCeiling - Draws the ceiling to the screen.
  * @instance: A pointer to the SDL_Instance structure.
  * @player: A pointer to the player structure.
  */
-
 void drawCeiling(SDL_Instance *instance, Player *player)
 {
 	int yStep = 2;
@@ -61,7 +61,7 @@ void drawCeiling(SDL_Instance *instance, Player *player)
 		ceilingStepX, ceilingStepY, ceilingX, ceilingY;
 	int p, cellX, cellY, texX, texY;
 	color ceilingColor;
-	key r, g, b;
+	Uint8 r, g, b;
 
 	for (int y = 0; y < SCREEN_HEIGHT / 2; y += yStep)
 	{
@@ -86,7 +86,6 @@ void drawCeiling(SDL_Instance *instance, Player *player)
 			ceilingX += ceilingStepX * xStep;
 			ceilingY += ceilingStepY * xStep;
 			ceilingColor = instance->ceilingTexture[TEX_WIDTH * texY + texX];
-			r, g, b;
 			r = (ceilingColor >> 16) & 0xFF;
 			g = (ceilingColor >> 8) & 0xFF;
 			b = ceilingColor & 0xFF;

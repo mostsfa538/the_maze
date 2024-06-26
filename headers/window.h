@@ -35,8 +35,16 @@ typedef struct SDL_Instance
 } SDL_Instance;
 
 int init(SDL_Instance *instance);
+int initGame(SDL_Instance *instance);
 void destroy(SDL_Instance *instance);
+void cleanUp(SDL_Instance *instance, Player *player);
 void handleEvents(SDL_Event event);
+
+void handleGameEvents(SDL_Event event, Player *player, bool *quit);
+double updateFrameTime(Uint32 *lastTime);
+void updatePlayerState(Player *player, double frameTime);
+void renderFrame(SDL_Instance *instance, Player *player);
+
 void calculateRayDirectionAndStep(int x, double *rayDirX, double *rayDirY,
 								  int *stepX, int *stepY, double *sideDistX,
 								  double *sideDistY, Player *player);

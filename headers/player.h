@@ -2,6 +2,8 @@
 #define PLAYER_H
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
 
 /**
  * struct Player - A structure to hold the player's position and direction.
@@ -22,6 +24,7 @@ typedef struct Player
 
 Player *createPlayer(double posX, double posY, double dirX, double dirY,
 					 double planeX, double planeY);
+Player *initializePlayer(void);
 void destroyPlayer(Player *player);
 void updatePlayerDirection(Player *player, double frameTime);
 void updatePlayerPosition(Player *player, double frameTime);

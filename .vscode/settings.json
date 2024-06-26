@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sdl.h": "c",
+        "window.h": "c",
+        "player.h": "c"
+    }
+}

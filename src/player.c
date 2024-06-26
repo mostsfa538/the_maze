@@ -29,6 +29,22 @@ Player *createPlayer(double posX, double posY, double dirX, double dirY,
 }
 
 /**
+ * initializePlayer - Initializes a player structure with default values.
+ * Return: A pointer to the new player structure.
+ */
+Player *initializePlayer()
+{
+	Player *player = createPlayer(22.0, 11.5, -1.0, 0.0, 0.0, 0.66);
+
+	if (player == NULL)
+	{
+		fprintf(stderr, "Failed to create player\n");
+		exit(1);
+	}
+	return (player);
+}
+
+/**
  * destroyPlayer - Frees the memory allocated for a player structure.
  * @player: A pointer to the player structure to free.
  */
