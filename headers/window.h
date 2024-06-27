@@ -6,8 +6,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
 #define mapWidth 24
 #define mapHeight 24
 #define TEX_WIDTH 64
@@ -18,6 +16,8 @@ typedef Uint32 color;
 typedef Uint8 key;
 
 extern int worldMap[mapWidth][mapHeight];
+extern int SCREEN_WIDTH;
+extern int SCREEN_HEIGHT;
 
 /**
  * struct SDL_Instance - A structure to hold the SDL window and renderer.
@@ -40,7 +40,9 @@ void destroy(SDL_Instance *instance);
 void cleanUp(SDL_Instance *instance, Player *player);
 void handleEvents(SDL_Event event);
 
-void handleGameEvents(SDL_Event event, Player *player, bool *quit);
+void handleGameEvents(SDL_Event event, Player *player, bool *quit, SDL_Instance *instance, bool *isFullscreen);
+void handleKeyEvent(SDL_Event event, Player *player, bool *quit, SDL_Instance *instance, bool *isFullscreen);
+void handleWindowEvent(SDL_Event event, SDL_Instance *instance);
 double updateFrameTime(Uint32 *lastTime);
 void updatePlayerState(Player *player, double frameTime);
 void renderFrame(SDL_Instance *instance, Player *player);

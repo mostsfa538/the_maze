@@ -1,30 +1,6 @@
 #include "../headers/player.h"
 #include "../headers/window.h"
 
-/**
- * handleGameEvents - Handles game events.
- * @event: The event to handle.
- * @player: A pointer to the player structure.
- * @quit: A pointer to the quit flag.
- */
-void handleGameEvents(SDL_Event event, Player *player, bool *quit)
-{
-	while (SDL_PollEvent(&event))
-	{
-		handleEvents(event);
-		if (event.type == SDL_KEYDOWN)
-		{
-			if (event.key.keysym.sym == SDLK_SLASH)
-			{
-				player->mapEnabled = !player->mapEnabled;
-			}
-			else if (event.key.keysym.sym == SDLK_ESCAPE)
-			{
-				*quit = true;
-			}
-		}
-	}
-}
 
 /**
  * updateFrameTime - Updates the frame time.
