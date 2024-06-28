@@ -1,5 +1,5 @@
-#include "../headers/window.h"
 #include "../headers/player.h"
+#include "../headers/window.h"
 
 /**
  * drawFloor - Draws the floor to the screen.
@@ -16,7 +16,7 @@ void drawFloor(SDL_Instance *instance, Player *player)
 	color floorColor;
 	Uint8 r, g, b;
 
-	for (int y = 0; y < SCREEN_HEIGHT / 2; y += yStep)
+	for (int y = SCREEN_HEIGHT / 2; y < SCREEN_HEIGHT; y += yStep)
 	{
 		rayDirX0 = player->dirX - player->planeX;
 		rayDirX1 = player->dirX + player->planeX;
@@ -43,7 +43,7 @@ void drawFloor(SDL_Instance *instance, Player *player)
 			g = (floorColor >> 8) & 0xFF;
 			b = floorColor & 0xFF;
 			SDL_SetRenderDrawColor(instance->renderer, r, g, b, 255);
-			SDL_RenderDrawPoint(instance->renderer, x, SCREEN_HEIGHT - y - 1);
+			SDL_RenderDrawPoint(instance->renderer, x, y);
 		}
 	}
 }
