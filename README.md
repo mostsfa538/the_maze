@@ -26,7 +26,7 @@ $ git clone https://github.com/mostsfa538/the_maze.git
 - `S` : move backward
 - `A` : rotate camera left
 - `D` : rotate camera right
-- `/' : enable/disable map
+- `/` : enable/disable map
 - `F` : toggle fullscreen
 - `ESC` : quit
 
