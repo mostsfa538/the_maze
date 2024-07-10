@@ -50,11 +50,11 @@ void destroyTexture(SDL_Instance *instance)
 int initTextures(SDL_Instance *instance)
 {
 	const char *textureFiles[NUM_TEXTURES] = {
-		"/home/mo5tar/Github/alx/the_maze/textures/eagle.bmp",
-		"/home/mo5tar/Github/alx/the_maze/textures/redbrick.bmp",
-		"/home/mo5tar/Github/alx/the_maze/textures/graystone.bmp",
-		"/home/mo5tar/Github/alx/the_maze/textures/wood.bmp",
-		"/home/mo5tar/Github/alx/the_maze/textures/bluestone.bmp"};
+		"textures/eagle.bmp",
+		"textures/redbrick.bmp",
+		"textures/graystone.bmp",
+		"textures/wood.bmp",
+		"textures/bluestone.bmp"};
 
 	for (int i = 0; i < NUM_TEXTURES; i++)
 	{
@@ -68,14 +68,14 @@ int initTextures(SDL_Instance *instance)
 	}
 
 	instance->floorTexture =
-		loadTexture("/home/mo5tar/Github/alx/the_maze/textures/colorstone.bmp");
+		loadTexture("textures/colorstone.bmp");
 	if (!instance->floorTexture)
 	{
 		fprintf(stderr, "Failed to load floor texture\n");
 		return (1);
 	}
 	instance->ceilingTexture = loadTexture(
-		"/home/mo5tar/Github/alx/the_maze/textures/purplestone.bmp");
+		"textures/purplestone.bmp");
 	if (!instance->ceilingTexture)
 	{
 		fprintf(stderr, "Failed to load ceiling texture\n");
