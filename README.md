@@ -31,4 +31,4 @@ $ git clone https://github.com/mostsfa538/the_maze.git
 
 ## Demo for maze project
 
-https://drive.google.com/file/d/1eStEf60qLwoZx2aUmuAJob5KdXvQYVrk/view?usp=sharing
+[The Maze](https://drive.google.com/file/d/1eStEf60qLwoZx2aUmuAJob5KdXvQYVrk/view?usp=sharing)
